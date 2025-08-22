@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Craft Interior | Bespoke Interior Design in Delhi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          keyframes: {
+            kenburns: {
+              "0%": {
+                transform: "scale(1) translate(0, 0)"
+              },
+              "100%": {
+                transform: "scale(1.1) translate(-2%, 2%)"
+              },
+            },
+            fadeInUp: {
+              "0%": {
+                opacity: "0",
+                transform: "translateY(20px)"
+              },
+              "100%": {
+                opacity: "1",
+                transform: "translateY(0)"
+              },
+            },
+          },
+          animation: {
+            fadeInUp: "fadeInUp 1s ease-out forwards",
+          },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Add this inside your existing <style> tag */
+    body {
+      animation: fadeInAnimation 0.75s ease-out forwards;
+      overflow-wrap: anywhere;
+      word-wrap: break-word;
+      min-width: 295px;
+      /* older syntax */
+
+    }
+
+    @keyframes fadeInAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .logo-img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background-color: #8b5cf6;
+      border-radius: 9999px;
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .scroll-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* New Robust Slideshow Styles */
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .hero-slide.slide-active {
+      opacity: 1;
+      animation: kenburns 8s ease-out forwards;
+    }
+
+    .hero-slide.slide-inactive {
+      opacity: 0;
+      animation: none;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .dark ::-webkit-scrollbar-track {
+      background: #1f2937;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #8b5cf6;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6d28d9;
+    }
+
+    @media(min-width:768px) {
+      .map-location>iframe {
+        width: 100%;
+      }
+
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+  <header class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm py-3 sticky top-0 z-50">
+    <nav class="container mx-auto px-4 flex justify-between items-center">
+      <a href="#home" class="flex items-center space-x-3">
+        <img src="images/Space Craft01.jpg" alt="Space Craft Interior Logo" class="logo-img" />
+        <span class="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100">Space Craft Interior</span>
+      </a>
+      <ul class="hidden md:flex items-center space-x-6">
+        <li>
+          <a href="about.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">About</a>
+        </li>
+        <li>
+          <a href="services.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Services</a>
+        </li>
+        <li>
+          <a href="portfolio.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Portfolio</a>
+        </li>
+        <li>
+          <a href="contact.html" class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Contact</a>
+        </li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <button id="dark-mode-toggle" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200" title="Toggle dark mode">
+          <span class="dark:hidden">🌙</span>
+          <span class="hidden dark:inline">☀️</span>
+        </button>
+        <button id="mobile-menu-button" class="md:hidden w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800">
+      <ul class="flex flex-col items-center py-4 space-y-2">
+        <li>
+          <a href="about.html" class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2">About</a>
+        </li>
+        <li>
+          <a href="services.html" class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2">Services</a>
+        </li>
+        <li>
+          <a href="portfolio.html" class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2">Portfolio</a>
+        </li>
+        <li>
+          <a href="contact.html" class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+        <div id="hero-carousel" class="absolute inset-0 z-0">
+          <img src="images/IMG-20250713-WA0011.jpg" class="hero-slide slide-active" alt="Elegant bedroom interior" />
+          <img src="images/IMG-20250713-WA0018.jpg" class="hero-slide slide-inactive" alt="Cozy living room interior" />
+          <img src="images/IMG-20250716-WA0012.jpg" class="hero-slide slide-inactive" alt="Minimalist bedroom design" />
+          <img src="images/IMG-20250716-WA0007.jpg" class="hero-slide slide-inactive" alt="Modern kitchen interior" />
+        </div>
+      </div>
+      <div class="relative z-20 text-center px-4">
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-white drop-shadow-lg animate-fadeInUp">
+          Transforming Spaces,<br class="hidden md:block" />
+          Creating Dreams
+        </h1>
+        <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-gray-100 drop-shadow-md animate-fadeInUp [animation-delay:200ms]">
+          Bespoke interior design in Delhi that reflects your unique style and
+          enhances your living experience.
+        </p>
+        <a href="#contact" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover:scale-105 animate-fadeInUp [animation-delay:400ms]">
+          Get a Free Consultation
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="py-16 md:py-24 bg-white dark:bg-gray-900 overflow-hidden">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2 scroll-reveal">
+          <img src="images/istockphoto-1188021571-612x612.jpg" alt="Team of interior designers collaborating" class="rounded-lg shadow-xl w-full h-auto object-cover" />
+        </div>
+        <div class="md:w-1/2 text-center md:text-left scroll-reveal">
+          <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6 relative inline-block section-title">
+            About Space Craft
+          </h2>
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+            At Space Craft Interior, we believe your space should be a true
+            reflection of you. With years of experience and a passion for
+            design, our Delhi-based team brings creativity, functionality, and
+            beauty to every project.
+          </p>
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+            From concept to execution, we work closely with you to ensure a
+            seamless and enjoyable journey. Our commitment to quality and
+            attention to detail is what sets us apart.
+          </p>
+          <a href="services.html" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-full inline-block shadow-md transform transition duration-300 hover:scale-105">
+            View Our Services
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 text-center mb-12 relative section-title">
+          Our Services
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal">
+            <div class="text-purple-500 mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                </path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              Residential Design
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+              Crafting beautiful and functional homes that reflect your
+              personal style and enhance your daily living.
+            </p>
+          </div>
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal" style="transition-delay: 100ms">
+            <div class="text-purple-500 mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                </path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              Commercial Design
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+              Designing inspiring and productive workspaces that elevate your
+              brand and impress your clients.
+            </p>
+          </div>
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal" style="transition-delay: 200ms">
+            <div class="text-purple-500 mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                </path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              Renovation & Remodeling
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+              Breathing new life into existing spaces with innovative designs
+              and efficient remodeling solutions.
+            </p>
+          </div>
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal">
+            <div class="text-purple-500 mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                </path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              Space Planning
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+              Optimizing layouts for maximum efficiency, flow, and aesthetic
+              appeal in any environment.
+            </p>
+          </div>
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal" style="transition-delay: 100ms">
+            <div class="text-purple-500 mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                </path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              Furniture & Decor
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+              Curating the perfect furniture, lighting, and decor pieces to
+              complete your design vision.
+            </p>
+          </div>
+          <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 text-center transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal" style="transition-delay: 200ms">
+            <div class="text-purple-500 mb-4">
+              <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                </path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              Project Management
+            </h3>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+              Overseeing every detail of your project to ensure timely
+              completion and exceptional results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="py-16 md:py-24 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 text-center mb-12 relative section-title">
+          Our Latest Projects
+        </h2>
+        <div class="columns-1 sm:columns-2 lg:columns-3 gap-8">
+          <a href="portfolio.html" class="block relative group rounded-lg overflow-hidden mb-8 break-inside-avoid shadow-lg transform transition duration-300 hover:shadow-2xl hover:-translate-y-2 scroll-reveal">
+            <img src="images/IMG-20250713-WA0016.jpg" alt="Modern Living Room in a City Apartment" class="w-full h-auto object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+              <h3 class="text-white text-xl font-bold">Modern Living Room</h3>
+              <p class="text-purple-300 text-sm">Residential Design</p>
+            </div>
+          </a>
+          <a href="portfolio.html" class="block relative group rounded-lg overflow-hidden mb-8 break-inside-avoid shadow-lg transform transition duration-300 hover:shadow-2xl hover:-translate-y-2 scroll-reveal">
+            <img src="images/IMG-20250713-WA0012.jpg" alt="Cozy Bedroom Retreat with warm lighting" class="w-full h-auto object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+              <h3 class="text-white text-xl font-bold">
+                Cozy Bedroom Retreat
+              </h3>
+              <p class="text-purple-300 text-sm">Master Suite</p>
+            </div>
+          </a>
+          <a href="portfolio.html" class="block relative group rounded-lg overflow-hidden mb-8 break-inside-avoid shadow-lg transform transition duration-300 hover:shadow-2xl hover:-translate-y-2 scroll-reveal">
+            <img src="images/5yrthfgb.jpg" alt="Minimalist Kitchen with sleek cabinets" class="w-full h-auto object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+              <h3 class="text-white text-xl font-bold">Minimalist Kitchen</h3>
+              <p class="text-purple-300 text-sm">Kitchen Renovation</p>
+            </div>
+          </a>
+          <a href="portfolio.html" class="block relative group rounded-lg overflow-hidden mb-8 break-inside-avoid shadow-lg transform transition duration-300 hover:shadow-2xl hover:-translate-y-2 scroll-reveal">
+            <img src="images/washroom-tiles-design.jpg" alt="Bathroom with modern geometric tiles" class="w-full h-auto object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+              <h3 class="text-white text-xl font-bold">Bathroom Interior</h3>
+              <p class="text-purple-300 text-sm">Modern & Soothing</p>
+            </div>
+          </a>
+          <a href="portfolio.html" class="block relative group rounded-lg overflow-hidden mb-8 break-inside-avoid shadow-lg transform transition duration-300 hover:shadow-2xl hover:-translate-y-2 scroll-reveal">
+            <img src="images/IMG-20250713-WA0014.jpg" alt="Dining Table setting for connection" class="w-full h-auto object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+              <h3 class="text-white text-xl font-bold">Dining Area</h3>
+              <p class="text-purple-300 text-sm">Style Meets Connection</p>
+            </div>
+          </a>
+          <a href="portfolio.html" class="block relative group rounded-lg overflow-hidden mb-8 break-inside-avoid shadow-lg transform transition duration-300 hover:shadow-2xl hover:-translate-y-2 scroll-reveal">
+            <img src="images/balcony-2-1656331677-2g3iT.avif" alt="Modern Balcony with a swing" class="w-full h-auto object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+              <h3 class="text-white text-xl font-bold">Modern Balcony</h3>
+              <p class="text-purple-300 text-sm">Stone Clad Backdrop</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 text-center mb-12 relative section-title">
+          What Our Clients Say
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg scroll-reveal">
+            <p class="text-gray-600 dark:text-gray-300 italic">
+              "Space Craft completely transformed our home. They listened to
+              our vision and delivered beyond our wildest dreams. The
+              attention to detail was incredible."
+            </p>
+            <div class="mt-4 font-semibold text-gray-900 dark:text-white">
+              Anjali & Rohan S.
+            </div>
+            <div class="text-sm text-purple-500">
+              3BHK Apartment, Gurugram
+            </div>
+          </div>
+          <div class="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg scroll-reveal" style="transition-delay: 200ms">
+            <p class="text-gray-600 dark:text-gray-300 italic">
+              "Working with the team was a seamless experience. They are true
+              professionals who are passionate about design. Our new office
+              space is both beautiful and functional."
+            </p>
+            <div class="mt-4 font-semibold text-gray-900 dark:text-white">
+              Vikram Mehra
+            </div>
+            <div class="text-sm text-purple-500">Startup Office, Noida</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-24 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 text-center mb-12 relative section-title">
+          Get In Touch
+        </h2>
+        <div class="flex flex-col md:flex-row gap-12 items-start">
+          <div class="md:w-1/2 w-full bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-lg scroll-reveal">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
+              Send Us a Message
+            </h3>
+            <form id="contact-form" action="https://formsubmit.co/spacecraftinterior01@gmail.com" method="POST" class="space-y-4">
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="text" name="name" required class="w-full p-3 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-purple-500 focus:outline-none" placeholder="Your Name" />
+              <input type="email" name="email" required class="w-full p-3 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-purple-500 focus:outline-none" placeholder="Your Email" />
+              <input type="tel" name="phone" required pattern="[0-9]{10}" class="w-full p-3 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-purple-500 focus:outline-none" placeholder="Your Phone Number" />
+              <textarea name="message" rows="5" required class="w-full p-3 rounded-lg bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-purple-500 focus:outline-none" placeholder="Resolve Your Query"></textarea>
+              <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-full shadow-lg w-full transition duration-300">
+                Send Message
+              </button>
+            </form>
+            <div id="form-success" class="text-green-600 font-semibold mt-4 hidden">
+              ✅ Thank you! Your message has been sent.
+            </div>
+            <div id="form-error" class="text-red-600 font-semibold mt-4 hidden">
+              ❌ Something went wrong. Please try again.
+            </div>
+          </div>
+          <div class="md:w-1/2 w-full scroll-reveal" style="transition-delay: 200ms">
+            <div class="text-center md:text-left">
+              <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
+                Contact Information
+              </h3>
+              <div class="space-y-4 text-lg text-gray-700 dark:text-gray-300">
+                <p class="flex items-center justify-center md:justify-start">
+                  <svg class="w-6 h-6 text-purple-500 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  <span>Ground Floor 99/9 Block G, Jamia Nagar, New Delhi
+                    110025</span>
+                </p>
+                <p class="flex items-center justify-center md:justify-start">
+                  <svg class="w-6 h-6 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <a href="tel:+916206483787" class="hover:text-purple-500 transition">+91-6206483787</a>
+                </p>
+                <p class="flex items-center justify-center md:justify-start">
+                  <svg class="w-6 h-6 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 13a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v16z" />
+                  </svg>
+                  <a href="mailto:spacecraftinterior01@gmail.com" class="hover:text-purple-500 transition">spacecraftinterior01@gmail.com</a>
+                </p>
+              </div>
+              <div class="mt-8 map-location">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.142819588321!2d77.283185375258!3d28.56540697570418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce38a883e6583%3A0x13998f4983a9925!2s99%2C%20Block%20G%20Rd%2C%20Jamia%20Nagar%2C%20Okhla%2C%20New%20Delhi%2C%20Delhi%20110025!5e0!3m2!1sen!2sin!4v1723793739775!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg shadow-md"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 dark:bg-black text-gray-400 py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <div>
+          <h3 class="text-xl font-bold text-white mb-3">
+            Space Craft Interior
+          </h3>
+          <p class="text-sm">
+            Transforming spaces, creating dreams across Delhi and beyond.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-3">Quick Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="#about" class="hover:text-purple-400 transition-colors">About Us</a>
+            </li>
+            <li>
+              <a href="services.html" class="hover:text-purple-400 transition-colors">Services</a>
+            </li>
+            <li>
+              <a href="portfolio.html" class="hover:text-purple-400 transition-colors">Portfolio</a>
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-purple-400 transition-colors">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-3">Follow Us</h3>
+          <div class="flex justify-center md:justify-start space-x-4">
+            <a href="https://www.facebook.com/profile.php?id=61577157322990&name=xhp_nt__fb__action__open_user" target="_blank" class="hover:text-purple-400 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V21.878A10.001 10.001 0 0022 12z" />
+              </svg></a>
+            <a href="https://www.instagram.com/space.craft_interior/" target="_blank" class="hover:text-purple-400 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.116 0-3.488.012-4.708.068-1.096.05-1.838.25-2.48.514a3.493 3.493 0 00-2.04 2.04c-.264.642-.465 1.384-.514 2.48C2.2 9.56 2.188 9.932 2.188 12s.012 2.44.068 3.392c.05 1.096.25 1.838.514 2.48a3.493 3.493 0 002.04 2.04c.642.264 1.384.465 2.48.514 1.22.056 1.592.068 4.708.068s3.488-.012 4.708-.068c1.096-.05 1.838-.25 2.48-.514a3.493 3.493 0 002.04-2.04c.264-.642.465 1.384.514-2.48.056-1.22.068-1.592.068-4.708s-.012-3.488-.068-4.708c-.05-1.096-.25-1.838-.514-2.48a3.493 3.493 0 00-2.04-2.04c-.642-.264-1.384-.465-2.48-.514C15.488 3.616 15.116 3.605 12 3.605zm0 5.234a3.161 3.161 0 100 6.322 3.161 3.161 0 000-6.322zm0 8.766a5.605 5.605 0 110-11.21 5.605 5.605 0 010 11.21zM16.965 6.57a1.295 1.295 0 100 2.59 1.295 1.295 0 000-2.59z" />
+              </svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 pt-8 border-t border-gray-700 text-center text-sm">
+        <p>© 2025 Space Craft Interior. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // --- Dark Mode ---
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    const htmlElement = document.documentElement;
+    if (
+      localStorage.getItem("theme") === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      htmlElement.classList.add("dark");
+    }
+    darkModeToggle.addEventListener("click", () => {
+      htmlElement.classList.toggle("dark");
+      localStorage.setItem(
+        "theme",
+        htmlElement.classList.contains("dark") ? "dark" : "light"
+      );
+    });
+
+    // --- Mobile Menu ---
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+    mobileMenuButton.addEventListener("click", () =>
+      mobileMenu.classList.toggle("hidden")
+    );
+    mobileLinks.forEach((link) =>
+      link.addEventListener("click", () => mobileMenu.classList.add("hidden"))
+    );
+
+    // --- AJAX Form Submission ---
+    const form = document.getElementById("contact-form");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const successMsg = document.getElementById("form-success");
+      const errorMsg = document.getElementById("form-error");
+      successMsg.classList.add("hidden");
+      errorMsg.classList.add("hidden");
+
+      const formData = new FormData(form);
+      fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json"
+          },
+        })
+        .then((response) => {
+          if (response.ok) {
+            successMsg.classList.remove("hidden");
+            form.reset();
+          } else {
+            errorMsg.classList.remove("hidden");
+          }
+        })
+        .catch(() => errorMsg.classList.remove("hidden"));
+    });
+
+    // --- Hero Slideshow (Robust Logic) ---
+    const slides = document.querySelectorAll(".hero-slide");
+    let currentSlide = 0;
+    setInterval(() => {
+      slides[currentSlide].classList.remove("slide-active");
+      slides[currentSlide].classList.add("slide-inactive");
+
+      currentSlide = (currentSlide + 1) % slides.length;
+
+      slides[currentSlide].classList.remove("slide-inactive");
+      slides[currentSlide].classList.add("slide-active");
+    }, 8000); // Interval matches animation duration
+
+    // --- Scroll Animations ---
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, {
+        threshold: 0.1
+      }
+    );
+    document
+      .querySelectorAll(".scroll-reveal")
+      .forEach((el) => observer.observe(el));
+  </script>
+</body>
+
+</html>

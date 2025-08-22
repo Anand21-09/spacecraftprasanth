@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Space Craft Interior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            keyframes: {
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+            animation: {
+              fadeInUp: "fadeInUp 1s ease-out forwards",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        animation: fadeInAnimation 0.75s ease-out forwards;
+      }
+
+      @keyframes fadeInAnimation {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .logo-img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .section-title::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -8px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: #8b5cf6;
+        border-radius: 9999px;
+      }
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .scroll-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #1f2937;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #8b5cf6;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6d28d9;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <header
+      class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm py-3 sticky top-0 z-50"
+    >
+      <nav class="container mx-auto px-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center space-x-3">
+          <img
+            src="images/Space Craft01.jpg"
+            alt="Space Craft Interior Logo"
+            class="logo-img"
+          />
+          <span
+            class="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100"
+            >Space Craft Interior</span
+          >
+        </a>
+        <ul class="hidden md:flex items-center space-x-6">
+          <li>
+            <a
+              href="index.html"
+              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="text-sm font-medium text-purple-600 dark:text-purple-400"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="services.html"
+              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="portfolio.html"
+              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              >Portfolio</a
+            >
+          </li>
+
+          <li>
+            <a
+              href="contact.html"
+              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              >Contact</a
+            >
+          </li>
+        </ul>
+        <div class="flex items-center gap-2">
+          <button
+            id="dark-mode-toggle"
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+            title="Toggle dark mode"
+          >
+            <span class="dark:hidden">🌙</span>
+            <span class="hidden dark:inline">☀️</span>
+          </button>
+          <button
+            id="mobile-menu-button"
+            class="md:hidden w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800">
+        <ul class="flex flex-col items-center py-4 space-y-2">
+          <li>
+            <a
+              href="index.html"
+              class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="services.html"
+              class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="portfolio.html"
+              class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2"
+              >Portfolio</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="block text-purple-600 dark:text-purple-400 font-medium px-4 py-2"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section
+        class="relative py-24 md:py-32 bg-gray-50 dark:bg-gray-800 flex items-center justify-center text-center"
+      >
+        <div
+          class="absolute inset-0 bg-cover bg-center opacity-20"
+          style="background-image: url('IMG-20250713-WA0018.jpg')"
+        ></div>
+        <div class="absolute inset-0 bg-black/30 dark:bg-black/50"></div>
+        <div class="relative z-10 animate-fadeInUp">
+          <h1
+            class="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg"
+          >
+            About Space Craft
+          </h1>
+          <p
+            class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto drop-shadow-md"
+          >
+            Learn about our journey, our values, and our commitment to design
+            excellence.
+          </p>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-24 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div class="scroll-reveal">
+              <img
+                src="images/images/istockphoto-1188021571-612x612.jpg"
+                alt="A well-designed modern living room"
+                class="rounded-lg shadow-xl w-full h-auto object-cover"
+              />
+            </div>
+            <div class="scroll-reveal" style="transition-delay: 150ms">
+              <h2
+                class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+              >
+                Welcome to
+                <span class="text-purple-600">Space Craft Interior</span>
+              </h2>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                At Space Craft Interior, we are dedicated to creating spaces
+                that are a true reflection of you. Based in the heart of Delhi,
+                we are a team of passionate designers who believe that a
+                well-designed space can significantly enhance the quality of
+                life. We specialize in transforming residential and commercial
+                properties into beautiful, functional, and timeless
+                environments.
+              </p>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Our approach is collaborative and client-focused. We listen to
+                your needs, understand your lifestyle, and work closely with you
+                to craft a design that is not only aesthetically pleasing but
+                also practical and comfortable. With a keen eye for detail and a
+                commitment to quality, we manage every aspect of the design
+                process, ensuring a seamless and enjoyable experience from start
+                to finish.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2
+              class="text-4xl font-bold text-gray-900 dark:text-white mb-4 relative inline-block section-title"
+            >
+              Why Choose Us?
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div
+              class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300 scroll-reveal"
+            >
+              <div
+                class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 mx-auto mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m12.728 0l.707-.707M12 21v-1m-6.364-1.636l.707-.707m12.728 0l-.707-.707"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-semibold text-gray-900 dark:text-white mb-2"
+              >
+                Unique Designs
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm">
+                Tailored and innovative concepts for every space.
+              </p>
+            </div>
+            <div
+              class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300 scroll-reveal"
+              style="transition-delay: 150ms"
+            >
+              <div
+                class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 mx-auto mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-semibold text-gray-900 dark:text-white mb-2"
+              >
+                Quality Assurance
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm">
+                Using only the finest materials and skilled craftsmen.
+              </p>
+            </div>
+            <div
+              class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300 scroll-reveal"
+              style="transition-delay: 300ms"
+            >
+              <div
+                class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 mx-auto mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-semibold text-gray-900 dark:text-white mb-2"
+              >
+                On-Time Completion
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm">
+                We respect your time and deliver on our promises.
+              </p>
+            </div>
+            <div
+              class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300 scroll-reveal"
+              style="transition-delay: 450ms"
+            >
+              <div
+                class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 mx-auto mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-semibold text-gray-900 dark:text-white mb-2"
+              >
+                Transparent Pricing
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 text-sm">
+                Clear, honest quotations with no hidden costs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-24 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div
+              class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-lg scroll-reveal"
+            >
+              <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                Our Mission
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                To design and deliver exceptional, personalized interiors that
+                blend functionality with high design, enriching our clients'
+                lives and ensuring their utmost satisfaction through a
+                transparent and seamless process.
+              </p>
+            </div>
+            <div
+              class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-lg scroll-reveal"
+              style="transition-delay: 150ms"
+            >
+              <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                Our Vision
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                To be a leading name in India's interior design industry,
+                recognized for our creative excellence, commitment to quality,
+                and our ability to turn any space into a source of comfort,
+                pride, and inspiration.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-24 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2
+              class="text-4xl font-bold text-gray-900 dark:text-white mb-4 relative inline-block section-title"
+            >
+              Meet Our Creative Team
+            </h2>
+            <h2>Meet Our Creative Team</h2>
+            <p
+              style="
+                text-align: center;
+                max-width: 800px;
+                margin: auto;
+                color: #ccc;
+                font-size: 16px;
+              "
+            >
+              The minds behind the magic, dedicated to bringing your vision to
+              life.
+            </p>
+
+            <!-- New paragraph about core principle -->
+            <p
+              style="
+                text-align: center;
+                max-width: 900px;
+                margin: 20px auto;
+                color: #bbb;
+                font-size: 15px;
+              "
+            >
+              Our design team works with one guiding principle — to create
+              spaces that balance aesthetic beauty with functionality. Every
+              member brings unique expertise, from concept development to final
+              execution, ensuring each project reflects our client’s personality
+              while maintaining the highest standards of quality and innovation.
+            </p>
+          </div>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8"
+          >
+            <div
+              class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300 scroll-reveal"
+            >
+              <img
+                class="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-purple-300 dark:ring-purple-500/50"
+                src="images/prasanth.jpg"
+                alt="Prashant kushwaha"
+              />
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                Prashant Kushvaha
+              </h3>
+              <p class="text-sm text-purple-600 dark:text-purple-400 mb-3">
+                Founder & Principal Designer
+              </p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                Prashant's passion for art drives her to create spaces that are
+                both innovative and deeply personal.
+              </p>
+            </div>
+
+            <div
+              class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300 scroll-reveal"
+              style="transition-delay: 100ms"
+            >
+              <img
+                class="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-purple-300 dark:ring-purple-500/50"
+                src="images/productionmanager.png"
+                alt="Pradeep Gupta"
+              />
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                Pradeep Gupta
+              </h3>
+              <p class="text-sm text-purple-600 dark:text-purple-400 mb-3">
+                Production Manager
+              </p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                Pradeep ensures every project is executed flawlessly, on time,
+                and on budget, bridging vision and reality.
+              </p>
+            </div>
+
+            <div
+              class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300 scroll-reveal"
+              style="transition-delay: 200ms"
+            >
+              <img
+                class="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-purple-300 dark:ring-purple-500/50"
+                src="images/interiordesigner.jpeg"
+                alt="Anand Kumar"
+              />
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                Anand Kumar
+              </h3>
+              <p class="text-sm text-purple-600 dark:text-purple-400 mb-3">
+                Interior Designer
+              </p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                With a sharp eye for color and texture, Anand brings warmth and
+                sophistication to every project.
+              </p>
+            </div>
+
+            <div
+              class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300 scroll-reveal"
+              style="transition-delay: 300ms"
+            >
+              <img
+                class="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-purple-300 dark:ring-purple-500/50"
+                src="images/3D-visualization-experts.webp"
+                alt="Raju Kushvaha"
+              />
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                Raju Kushvaha
+              </h3>
+              <p class="text-sm text-purple-600 dark:text-purple-400 mb-3">
+                3D Visualization Specialist
+              </p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                Raju brings blueprints to life with stunningly realistic 3D
+                renders for clients to visualize their space.
+              </p>
+            </div>
+
+            <div
+              class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg text-center transform hover:scale-105 transition-transform duration-300 scroll-reveal"
+              style="transition-delay: 400ms"
+            >
+              <img
+                class="w-32 h-32 rounded-full mx-auto mb-4 object-cover ring-4 ring-purple-300 dark:ring-purple-500/50"
+                src="images/site.jpeg"
+                alt="Komal Singh"
+              />
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+                Komal Singh
+              </h3>
+              <p class="text-sm text-purple-600 dark:text-purple-400 mb-3">
+                Site Supervisor & Operations
+              </p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                Komal ensures the design vision is executed with precision and
+                perfection by our craftsmen on-site.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-900 dark:bg-black text-gray-400 py-12">
+      <div class="container mx-auto px-4">
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left"
+        >
+          <div>
+            <h3 class="text-xl font-bold text-white mb-3">
+              Space Craft Interior
+            </h3>
+            <p class="text-sm">
+              Transforming spaces, creating dreams across Delhi and beyond.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-3">Quick Links</h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a
+                  href="index.html"
+                  class="hover:text-purple-400 transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-purple-400 transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="portfolio.html"
+                  class="hover:text-purple-400 transition-colors"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-purple-400 transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-purple-400 transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-3">Follow Us</h3>
+            <div class="flex justify-center md:justify-start space-x-4">
+              <a
+                href="https://www.facebook.com/profile.php?id=61577157322990&name=xhp_nt__fb__action__open_user"
+                target="_blank"
+                class="hover:text-purple-400 transition-colors"
+                ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+                  /></svg
+              ></a>
+              <a
+                href="https://www.instagram.com/space.craft_interior/"
+                target="_blank"
+                class="hover:text-purple-400 transition-colors"
+                ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919-4.919 1.266-.057 1.644-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-gray-700 text-center text-sm">
+          <p>&copy; 2025 Space Craft Interior. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // --- Dark Mode ---
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+      const htmlElement = document.documentElement;
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        htmlElement.classList.add("dark");
+      }
+      darkModeToggle.addEventListener("click", () => {
+        htmlElement.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          htmlElement.classList.contains("dark") ? "dark" : "light"
+        );
+      });
+
+      // --- Mobile Menu ---
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileMenuButton.addEventListener("click", () =>
+        mobileMenu.classList.toggle("hidden")
+      );
+      mobileLinks.forEach((link) =>
+        link.addEventListener("click", () => mobileMenu.classList.add("hidden"))
+      );
+
+      // --- Scroll Animations ---
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document
+        .querySelectorAll(".scroll-reveal")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

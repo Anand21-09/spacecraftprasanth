@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services | Space Craft Interior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            keyframes: {
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+            animation: {
+              fadeInUp: "fadeInUp 1s ease-out forwards",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        animation: fadeInAnimation 0.75s ease-out forwards;
+      }
+
+      @keyframes fadeInAnimation {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .logo-img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .section-title::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -8px; /* Adjusted for better spacing */
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: #8b5cf6;
+        border-radius: 9999px;
+      }
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .scroll-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #1f2937;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #8b5cf6;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6d28d9;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+    <!-- Header -->
+    <header
+      class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm py-3 sticky top-0 z-50"
+    >
+      <nav class="container mx-auto px-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center space-x-3">
+          <img
+            src="images/Space Craft01.jpg"
+            alt="Space Craft Interior Logo"
+            class="logo-img"
+          />
+          <span
+            class="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100"
+            >Space Craft Interior</span
+          >
+        </a>
+        <ul class="hidden md:flex items-center space-x-6">
+          <li>
+            <a
+              href="index.html"
+              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="about.html"
+              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="services.html"
+              class="text-sm font-medium text-purple-600 dark:text-purple-400"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="portfolio.html"
+              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              >Portfolio</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              >Contact</a
+            >
+          </li>
+        </ul>
+        <div class="flex items-center gap-2">
+          <button
+            id="dark-mode-toggle"
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+            title="Toggle dark mode"
+          >
+            <span class="dark:hidden">🌙</span>
+            <span class="hidden dark:inline">☀️</span>
+          </button>
+          <button
+            id="mobile-menu-button"
+            class="md:hidden w-10 h-10 flex items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800">
+        <ul class="flex flex-col items-center py-4 space-y-2">
+          <li>
+            <a
+              href="index.html#about"
+              class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="services.html"
+              class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="portfolio.html"
+              class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2"
+              >Portfolio</a
+            >
+          </li>
+          <li>
+            <a
+              href="contact.html"
+              class="block text-gray-700 dark:text-gray-200 font-medium px-4 py-2"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <!-- Page Header -->
+      <section
+        class="relative py-24 md:py-32 bg-gray-50 dark:bg-gray-800 flex items-center justify-center text-center"
+      >
+        <div
+          class="absolute inset-0 bg-cover bg-center opacity-20"
+          style="background-image: url('IMG-20250713-WA0018.jpg')"
+        ></div>
+        <div class="absolute inset-0 bg-black/30 dark:bg-black/50"></div>
+        <div class="relative z-10">
+          <h1
+            class="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg"
+          >
+            Our Services
+          </h1>
+          <p
+            class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto drop-shadow-md"
+          >
+            Comprehensive design solutions tailored to your lifestyle and needs.
+          </p>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section
+        id="services-list"
+        class="py-16 md:py-24 bg-white dark:bg-gray-900"
+      >
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Service Item 1: Residential Interior -->
+            <div
+              class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal"
+            >
+              <img
+                src="images/services1.png"
+                alt="Residential Interior Design"
+                class="w-full h-48 object-cover rounded-md mb-6"
+              />
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                Residential Interior
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                We provide stunning and practical home interior designs. Our
+                services include space planning, furniture selection, and
+                creating a cohesive look that reflects your personality and
+                lifestyle.
+              </p>
+            </div>
+
+            <!-- Service Item 2: Commercial Interior -->
+            <div
+              class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal"
+              style="transition-delay: 100ms"
+            >
+              <img
+                src="images/services2.jpeg"
+                alt="Commercial Interior Design"
+                class="w-full h-48 object-cover rounded-md mb-6"
+              />
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                Commercial Interior
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Our commercial design solutions create productive and inviting
+                environments for offices, retail spaces, and more. We focus on
+                brand identity and functionality to enhance user experience.
+              </p>
+            </div>
+
+            <!-- Service Item 3: Full Home Interior -->
+            <div
+              class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal"
+              style="transition-delay: 200ms"
+            >
+              <img
+                src="images/services3.jpeg"
+                alt="Full Home Interior Design"
+                class="w-full h-48 object-cover rounded-md mb-6"
+              />
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                Full Home Interior
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                From concept to completion, we manage your entire home
+                renovation. Our turnkey solutions ensure a seamless process,
+                delivering a beautiful and cohesive home design.
+              </p>
+            </div>
+
+            <!-- Service Item 4: Modular Kitchen -->
+            <div
+              class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal"
+            >
+              <img
+                src="images/services4.jpeg"
+                alt="Modular Kitchen Design"
+                class="w-full h-48 object-cover rounded-md mb-6"
+              />
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                Modular Kitchen
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                We design and install stylish and efficient modular kitchens.
+                Our designs maximize storage and workflow, using high-quality
+                materials for a modern and durable finish.
+              </p>
+            </div>
+
+            <!-- Service Item 5: Wardrobe Design -->
+            <div
+              class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal"
+              style="transition-delay: 100ms"
+            >
+              <img
+                src="images/services5.jpeg"
+                alt="Wardrobe Design"
+                class="w-full h-48 object-cover rounded-md mb-6"
+              />
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                Wardrobe Design
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Our custom wardrobe designs offer smart storage solutions
+                tailored to your needs. We create beautiful and organized spaces
+                with a variety of finishes and styles.
+              </p>
+            </div>
+
+            <!-- Service Item 6: Space Saving Furniture -->
+            <div
+              class="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl scroll-reveal"
+              style="transition-delay: 200ms"
+            >
+              <img
+                src="images/services6.jpeg"
+                alt="Space Saving Furniture"
+                class="w-full h-48 object-cover rounded-md mb-6"
+              />
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                Space Saving Furniture
+              </h3>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Maximize your living area with our innovative space-saving
+                furniture. We offer multi-functional and compact designs perfect
+                for modern homes and apartments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-gray-400 py-12">
+      <div class="container mx-auto px-4">
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left"
+        >
+          <div>
+            <h3 class="text-xl font-bold text-white mb-3">
+              Space Craft Interior
+            </h3>
+            <p class="text-sm">
+              Transforming spaces, creating dreams across Delhi and beyond.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-3">Quick Links</h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a
+                  href="index.html#about"
+                  class="hover:text-purple-400 transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-purple-400 transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="portfolio.html"
+                  class="hover:text-purple-400 transition-colors"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-purple-400 transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-3">Follow Us</h3>
+            <div class="flex justify-center md:justify-start space-x-4">
+              <a
+                href="https://www.facebook.com/profile.php?id=61577157322990&name=xhp_nt__fb__action__open_user"
+                target="_blank"
+                class="hover:text-purple-400 transition-colors"
+                ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.776-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V21.878A10.001 10.001 0 0022 12z"
+                  /></svg
+              ></a>
+              <a
+                href="https://www.instagram.com/space.craft_interior/"
+                target="_blank"
+                class="hover:text-purple-400 transition-colors"
+                ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664 4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.116 0-3.488.012-4.708.068-1.096.05-1.838.25-2.48.514a3.493 3.493 0 00-2.04 2.04c-.264.642-.465 1.384-.514 2.48C2.2 9.56 2.188 9.932 2.188 12s.012 2.44.068 3.392c.05 1.096.25 1.838.514 2.48a3.493 3.493 0 002.04 2.04c.642.264 1.384.465 2.48.514 1.22.056 1.592.068 4.708.068s3.488-.012 4.708-.068c1.096-.05 1.838-.25 2.48-.514a3.493 3.493 0 002.04-2.04c.264-.642.465 1.384.514-2.48.056-1.22.068-1.592.068-4.708s-.012-3.488-.068-4.708c-.05-1.096-.25-1.838-.514-2.48a3.493 3.493 0 00-2.04-2.04c-.642-.264-1.384-.465-2.48-.514C15.488 3.616 15.116 3.605 12 3.605zm0 5.234a3.161 3.161 0 100 6.322 3.161 3.161 0 000-6.322zm0 8.766a5.605 5.605 0 110-11.21 5.605 5.605 0 010 11.21zM16.965 6.57a1.295 1.295 0 100 2.59 1.295 1.295 0 000-2.59z"
+                  /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 pt-8 border-t border-gray-700 text-center text-sm">
+          <p>© 2025 Space Craft Interior. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // --- Dark Mode ---
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+      const htmlElement = document.documentElement;
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        htmlElement.classList.add("dark");
+      }
+      darkModeToggle.addEventListener("click", () => {
+        htmlElement.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          htmlElement.classList.contains("dark") ? "dark" : "light"
+        );
+      });
+
+      // --- Mobile Menu ---
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileMenuButton.addEventListener("click", () =>
+        mobileMenu.classList.toggle("hidden")
+      );
+      mobileLinks.forEach((link) =>
+        link.addEventListener("click", () => mobileMenu.classList.add("hidden"))
+      );
+
+      // --- Scroll Animations ---
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document
+        .querySelectorAll(".scroll-reveal")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
